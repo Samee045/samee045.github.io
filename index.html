@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YourCompany - B2B Solutions</title>
+    <title>Positivus - Together for Success</title>
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1d4ed8;
-            --light-color: #f3f4f6;
-            --dark-color: #1e293b;
-            --success-color: #10b981;
+            --primary-color: #C1FF72; /* Bright green */
+            --dark-color: #1A1A1A;
+            --light-color: #F5F5F5;
+            --grey-light: #EAEAEA;
+            --grey-dark: #666666;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
         
         body {
-            line-height: 1.6;
-            color: #333;
+            line-height: 1.5;
+            color: var(--dark-color);
             background-color: #fff;
         }
         
         a {
             text-decoration: none;
-            color: var(--primary-color);
+            color: var(--dark-color);
         }
         
         ul {
@@ -41,30 +41,47 @@
             padding: 0 20px;
         }
         
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        
+        .highlight {
+            display: inline-block;
+            background-color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
         /* Header */
         header {
             background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 100;
+            padding: 20px 0;
         }
         
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 24px;
             font-weight: 700;
             color: var(--dark-color);
+            display: flex;
+            align-items: center;
         }
         
-        .logo span {
-            color: var(--primary-color);
+        .logo-square {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background-color: var(--dark-color);
+            margin-right: 8px;
         }
         
         .nav-links {
@@ -80,44 +97,52 @@
             color: var(--dark-color);
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 15px;
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--grey-dark);
         }
         
-        .language-selector {
-            position: relative;
-            margin-left: 20px;
-        }
-        
-        .language-selector select {
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: 1px solid #e2e8f0;
-            background-color: #fff;
-            cursor: pointer;
-            font-size: 0.9rem;
+        .active-link {
+            background-color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
         }
         
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            background-color: var(--primary-color);
-            color: #fff;
-            border-radius: 5px;
+            border: 1px solid var(--dark-color);
+            border-radius: 50px;
             font-weight: 500;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            background-color: transparent;
+            cursor: pointer;
         }
         
         .btn:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--dark-color);
+            color: #fff;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            color: var(--dark-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #b0e467;
+            color: var(--dark-color);
         }
         
         /* Hero Section */
         .hero {
-            padding: 150px 0 100px;
-            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+            background-color: var(--light-color);
+            border-radius: 20px;
+            margin-top: 20px;
         }
         
         .hero-content {
@@ -128,215 +153,536 @@
         
         .hero-text {
             width: 50%;
+            padding-left: 40px;
         }
         
         .hero-text h1 {
-            font-size: 2.5rem;
+            font-size: 42px;
+            font-weight: 700;
             margin-bottom: 20px;
-            color: var(--dark-color);
         }
         
         .hero-text p {
-            font-size: 1.1rem;
+            font-size: 18px;
+            color: var(--grey-dark);
             margin-bottom: 30px;
-            color: #4b5563;
+            max-width: 500px;
         }
         
         .hero-image {
-            width: 45%;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: #fff;
-        }
-        
-        .section-header {
+            width: 40%;
             text-align: center;
-            margin-bottom: 60px;
         }
         
-        .section-header h2 {
-            font-size: 2rem;
-            color: var(--dark-color);
-            margin-bottom: 20px;
+        /* Impact Section */
+        .impact {
+            padding: 80px 0 40px;
         }
         
-        .section-header p {
-            font-size: 1.1rem;
-            color: #4b5563;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-        
-        .feature-card p {
-            color: #4b5563;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            padding: 80px 0;
-            background-color: var(--light-color);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .testimonial-card {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 20px;
-            color: #4b5563;
-        }
-        
-        .testimonial-author {
+        .impact-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
         }
         
-        .author-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .impact-title .highlight {
             margin-right: 15px;
-            background-color: #ddd;
         }
         
-        .author-info h4 {
-            font-size: 1.1rem;
-            color: var(--dark-color);
+        .impact-description {
+            color: var(--grey-dark);
+            margin-bottom: 40px;
+            max-width: 500px;
         }
         
-        .author-info p {
-            color: #6b7280;
-            font-size: 0.9rem;
+        .stats-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--grey-light);
         }
         
-        /* CTA Section */
-        .cta {
-            padding: 100px 0;
+        .stat-item {
             text-align: center;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: #fff;
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 30px;
         }
         
-        .cta h2 {
-            font-size: 2.2rem;
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--grey-dark);
+        }
+        
+        /* Journey Section */
+        .journey {
+            padding: 80px 0;
+        }
+        
+        .journey-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .journey-title .highlight {
+            margin-right: 15px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 80px;
+            position: relative;
+        }
+        
+        .timeline-year {
+            font-size: 32px;
+            font-weight: 700;
+            width: 120px;
+            flex-shrink: 0;
+        }
+        
+        .timeline-content {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            position: relative;
+            margin-left: 50px;
+        }
+        
+        .timeline-content h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .timeline-content p {
+            color: #ccc;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 100px;
+            top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .timeline-icon-square {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary-color);
+            margin-right: 8px;
+        }
+        
+        .timeline-circle {
+            width: 150px;
+            height: 50px;
+            border: 1px solid #eee;
+            border-radius: 100%;
+            position: absolute;
+            opacity: 0.5;
+        }
+        
+        .circle-left {
+            left: -100px;
+            bottom: -150px;
+        }
+        
+        .circle-right {
+            right: -100px;
+            bottom: -150px;
+        }
+        
+        /* Values Section */
+        .values {
+            padding: 80px 0;
+        }
+        
+        .values-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .values-title .highlight {
+            margin-right: 15px;
+        }
+        
+        .values-subtitle {
+            color: var(--grey-dark);
+            margin-bottom: 50px;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-card {
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .value-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .value-card p {
+            color: var(--grey-dark);
+            margin-right: 50px;
+        }
+        
+        .value-card-split {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .value-text {
+            flex: 1;
+        }
+        
+        .value-image {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Quote Section */
+        .quote-section {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 30px;
+            border-radius: 15px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote-content {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .quote-text {
+            font-size: 24px;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        
+        .quote-author {
+            font-size: 16px;
+            color: #ccc;
+        }
+        
+        .quote-star {
+            position: absolute;
+            color: white;
+            opacity: 0.2;
+            font-size: 40px;
+        }
+        
+        .star-1 {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .star-2 {
+            bottom: 20px;
+            right: 20px;
+        }
+        
+        .quote-emoji {
+            position: absolute;
+            left: 100px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+        
+        /* Awards Section */
+        .awards {
+            padding: 80px 0;
+        }
+        
+        .awards-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .awards-title .highlight {
+            margin-right: 15px;
+        }
+        
+        .awards-description {
+            color: var(--grey-dark);
+            margin-bottom: 50px;
+            max-width: 800px;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .award-card {
+            background-color: var(--grey-light);
+            padding: 30px 20px;
+            border-radius: 10px;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .award-icon {
+            font-size: 40px;
             margin-bottom: 20px;
         }
         
-        .cta p {
-            font-size: 1.2rem;
+        .award-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .award-description {
+            font-size: 14px;
+            color: var(--grey-dark);
+        }
+        
+        /* Join Team Section */
+        .join-team {
+            background-color: var(--primary-color);
+            padding: 50px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .join-team-text {
+            flex: 1;
+        }
+        
+        .join-team-text h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .join-team-text p {
+            max-width: 500px;
             margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
-        .btn-light {
-            background-color: #fff;
-            color: var(--primary-color);
-        }
-        
-        .btn-light:hover {
-            background-color: var(--light-color);
+        .join-team-image {
+            width: 250px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Footer */
         footer {
             background-color: var(--dark-color);
-            color: #fff;
+            color: white;
             padding: 60px 0 20px;
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .footer-logo-square {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background-color: white;
+            margin-right: 8px;
+        }
+        
+        .footer-left {
+            max-width: 300px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 40px;
         }
         
         .footer-column h3 {
-            font-size: 1.3rem;
+            font-size: 16px;
             margin-bottom: 20px;
-            color: #fff;
+            color: white;
+            font-weight: 600;
         }
         
-        .footer-column p, .footer-column a {
-            color: #cbd5e1;
+        .footer-column a {
+            color: #ccc;
             margin-bottom: 10px;
             display: block;
+            font-size: 14px;
         }
         
         .footer-column a:hover {
-            color: #fff;
+            color: white;
         }
         
         .social-links {
             display: flex;
             gap: 15px;
+            margin-top: 20px;
         }
         
         .social-links a {
-            color: #fff;
-            font-size: 1.2rem;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .footer-contact {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 5px;
+        }
+        
+        .footer-subscribe {
+            margin-left: 80px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-subscribe h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .subscribe-form {
+            display: flex;
+            margin-top: 10px;
+        }
+        
+        .subscribe-input {
+            padding: 12px 15px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: transparent;
+            color: white;
+            width: 250px;
+            margin-right: 10px;
+        }
+        
+        .subscribe-btn {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
         }
         
         .footer-bottom {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
             padding-top: 20px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 14px;
+        }
+        
+        .footer-bottom a {
+            color: #999;
+            margin-left: 20px;
+        }
+        
+        /* Language Selector (smaller and more discreet) */
+        .language-selector {
+            margin-left: 20px;
+            position: relative;
+        }
+        
+        .language-selector select {
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px solid #e2e8f0;
+            background-color: #fff;
+            font-size: 14px;
+            cursor: pointer;
         }
         
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .hero-content {
                 flex-direction: column;
                 text-align: center;
@@ -344,23 +690,99 @@
             
             .hero-text, .hero-image {
                 width: 100%;
+                padding-left: 0;
             }
             
             .hero-text {
                 margin-bottom: 40px;
             }
             
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .footer-subscribe {
+                margin-left: 0;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .join-team {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .join-team-text {
+                margin-bottom: 30px;
+            }
+            
+            .join-team-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
             
-            .mobile-nav {
-                display: flex;
+            .stats-row {
+                flex-direction: column;
                 align-items: center;
             }
             
-            .language-selector {
-                margin-right: 20px;
+            .stat-item {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-year {
+                margin-bottom: 20px;
+            }
+            
+            .timeline-content {
+                margin-left: 0;
+            }
+            
+            .timeline-icon {
+                left: 50px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-bottom-links {
+                margin-top: 10px;
+            }
+            
+            .footer-bottom-links a {
+                margin-left: 10px;
+                margin-right: 10px;
             }
         }
     </style>
@@ -370,26 +792,21 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Your<span>Company</span></a>
-                <div class="mobile-nav">
-                    <div class="language-selector">
-                        <select id="language-select" onchange="changeLanguage(this.value)">
-                            <option value="en">English</option>
-                            <option value="nl">Nederlands</option>
-                            <option value="fr">Français</option>
-                        </select>
-                    </div>
-                </div>
+                <a href="#" class="logo">
+                    <span class="logo-square"></span>Positivus
+                </a>
                 <ul class="nav-links">
-                    <li><a href="#features" data-i18n="nav.features">Features</a></li>
-                    <li><a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
-                    <li><a href="#" class="btn" data-i18n="nav.getStarted">Get Started</a></li>
+                    <li><a href="#" class="active-link">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Use Cases</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#" class="btn">Request a Quote</a></li>
                     <li class="language-selector">
-                        <select id="language-select-desktop" onchange="changeLanguage(this.value)">
-                            <option value="en">English</option>
-                            <option value="nl">Nederlands</option>
-                            <option value="fr">Français</option>
+                        <select id="language-select" onchange="changeLanguage(this.value)">
+                            <option value="en">EN</option>
+                            <option value="nl">NL</option>
+                            <option value="fr">FR</option>
                         </select>
                     </li>
                 </ul>
@@ -401,353 +818,309 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1 data-i18n="hero.title">Streamline Your Business Operations</h1>
-                    <p data-i18n="hero.description">Our innovative B2B solutions help enterprises optimize workflows, reduce costs, and drive growth. Join hundreds of businesses that trust us with their operational needs.</p>
-                    <a href="#" class="btn" data-i18n="hero.cta">Schedule a Demo</a>
-                </div>
                 <div class="hero-image">
-                    <img src="/api/placeholder/600/400" alt="Business Dashboard">
+                    <img src="/api/placeholder/400/300" alt="Business Success" style="border-radius: 10px;">
+                </div>
+                <div class="hero-text">
+                    <h1 data-i18n="hero.title">Together for Success</h1>
+                    <p data-i18n="hero.description">At Positivus, we help businesses grow by optimizing creative, innovative, and effective marketing and advertising solutions. We're proud of our track record of shared success.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
+    <!-- Impact Section -->
+    <section class="impact">
         <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="features.title">Why Choose Us</h2>
-                <p data-i18n="features.subtitle">We provide comprehensive solutions tailored to meet the unique challenges of modern businesses.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">⚙️</div>
-                    <h3 data-i18n="features.card1.title">Process Automation</h3>
-                    <p data-i18n="features.card1.description">Automate repetitive tasks and workflows to improve efficiency and reduce operational costs.</p>
+            <h2 class="impact-title">
+                <span class="highlight">Our Impact in Numbers</span>
+            </h2>
+            <p class="impact-description">A snapshot of the initiatives and achievements that drive our success</p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <div class="stat-number">8+</div>
+                    <div class="stat-label">Years of Experience</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 data-i18n="features.card2.title">Data Analytics</h3>
-                    <p data-i18n="features.card2.description">Gain valuable insights from your business data with our advanced analytics platform.</p>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Clients</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3 data-i18n="features.card3.title">Enterprise Security</h3>
-                    <p data-i18n="features.card3.description">Protect your sensitive information with our industry-leading security protocols.</p>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Successful Campaigns</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3 data-i18n="features.card4.title">Seamless Integration</h3>
-                    <p data-i18n="features.card4.description">Easily integrate with your existing systems and third-party applications.</p>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Industry Awards</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3 data-i18n="features.card5.title">Mobile Accessibility</h3>
-                    <p data-i18n="features.card5.description">Access your business operations anytime, anywhere with our mobile solutions.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3 data-i18n="features.card6.title">Customizable Solutions</h3>
-                    <p data-i18n="features.card6.description">Tailor our platform to fit your specific business requirements and objectives.</p>
+                <div class="stat-item">
+                    <div class="stat-number">500%</div>
+                    <div class="stat-label">ROI for clients</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <!-- Journey Section -->
+    <section class="journey">
         <div class="container">
-            <div class="section-header">
-                <h2 data-i18n="testimonials.title">What Our Clients Say</h2>
-                <p data-i18n="testimonials.subtitle">Don't just take our word for it. Hear from businesses that have transformed their operations with our solutions.</p>
+            <h2 class="journey-title">
+                <span class="highlight">Our Journey</span>
+            </h2>
+            <p class="journey-description">From humble beginnings to industry leadership, the Positivus journey has been fueled by drive towards exceptional outcomes.</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-icon">
+                        <span class="timeline-icon-square"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>The Beginning</h3>
+                        <p>Positivus was founded to help businesses connect with their audiences through innovative marketing solutions.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-icon">
+                        <span class="timeline-icon-square"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Industry Recognition</h3>
+                        <p>Positivus wins several industry awards for our digital marketing innovations.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-icon">
+                        <span class="timeline-icon-square"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Innovation and Growth</h3>
+                        <p>Expanded team to 50+ marketing specialists and developed proprietary performance tracking tools.</p>
+                    </div>
+                    <div class="timeline-circle circle-left"></div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-icon">
+                        <span class="timeline-icon-square"></span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Leading the Future</h3>
+                        <p>This year, Positivus is pioneering the use of AI and automation in digital marketing campaigns for maximum impact.</p>
+                    </div>
+                    <div class="timeline-circle circle-right"></div>
+                </div>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.quote1">"Implementing YourCompany's solutions has revolutionized our workflow efficiency. We've seen a 30% increase in productivity within just three months."</p>
-                    <div class="testimonial-author">
-                        <div class="author-image"></div>
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p data-i18n="testimonials.position1">CTO, Tech Innovations Inc.</p>
-                        </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2 class="values-title">
+                <span class="highlight">Core Values</span>
+            </h2>
+            <p class="values-subtitle">At the heart of everything we do, these are our values.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>Client Success First</h3>
+                    <p>We are dedicated to achieving measurable results for our clients' goals and drive their success.</p>
+                </div>
+                
+                <div class="value-card value-card-split">
+                    <div class="value-text">
+                        <h3>Innovation</h3>
+                        <p>We constantly strive to find new ways to deliver exceptional results.</p>
+                    </div>
+                    <div class="value-image">
+                        <img src="/api/placeholder/80/80" alt="Innovation">
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.quote2">"The level of customer support provided by the team is exceptional. They're always available to address our concerns and help optimize our processes."</p>
-                    <div class="testimonial-author">
-                        <div class="author-image"></div>
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p data-i18n="testimonials.position2">Operations Manager, Global Solutions</p>
-                        </div>
+                
+                <div class="value-card value-card-split">
+                    <div class="value-text">
+                        <h3>Collaboration</h3>
+                        <p>We believe in the power of teamwork and partnership.</p>
+                    </div>
+                    <div class="value-image">
+                        <img src="/api/placeholder/80/80" alt="Collaboration">
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.quote3">"As a growing company, we needed scalable solutions that could grow with us. YourCompany provided exactly what we needed, and more."</p>
-                    <div class="testimonial-author">
-                        <div class="author-image"></div>
-                        <div class="author-info">
-                            <h4>Jessica Williams</h4>
-                            <p data-i18n="testimonials.position3">CEO, StartUp Ventures</p>
-                        </div>
+                
+                <div class="value-card value-card-split">
+                    <div class="value-text">
+                        <h3>Transparency</h3>
+                        <p>We keep our clients informed every step of the way to build trust and clarity.</p>
+                    </div>
+                    <div class="value-image">
+                        <img src="/api/placeholder/80/80" alt="Transparency">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="quote-content">
+            <p class="quote-text">"At Positivus, we believe that success is built on innovation, collaboration, and a relentless focus on delivering results."</p>
+            <p class="quote-author">— John Smith, Founder of Positivus</p>
+        </div>
+        <div class="quote-emoji">😀</div>
+        <div class="quote-star star-1">★</div>
+        <div class="quote-star star-2">★</div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards">
         <div class="container">
-            <h2 data-i18n="cta.title">Ready to Transform Your Business?</h2>
-            <p data-i18n="cta.description">Join hundreds of companies that are already leveraging our platform to streamline their operations and drive growth.</p>
-            <a href="#" class="btn btn-light" data-i18n="cta.button">Get Started Today</a>
+            <h2 class="awards-title">
+                <span class="highlight">Awards & Recognition</span>
+            </h2>
+            <p class="awards-description">At Positivus, our commitment to excellence has been recognized across multiple platforms.</p>
+            
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">🏆</div>
+                    <h3 class="award-title">Best Small Business Digital Marketing Agency of the Year</h3>
+                    <p class="award-description">Recognized for our innovative strategies and measurable results for small business clients.</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🎯</div>
+                    <h3 class="award-title">Innovative Website Design Excellence Award</h3>
+                    <p class="award-description">Honored for creating websites that balance beautiful design with exceptional user experience and conversion focus.</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">📈</div>
+                    <h3 class="award-title">Top Performing SEO Agency Award</h3>
+                    <p class="award-description">Recognized for consistently delivering top-tier SEO results across diverse industries.</p>
+                </div>
+                
+                <div class="award-card">
+                    <div class="award-icon">🌐</div>
+                    <h3 class="award-title">Excellence in Social Media Marketing</h3>
+                    <p class="award-description">Acknowledged for creating engaging social campaigns that drive meaningful business results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Team Section -->
+    <section class="container">
+        <div class="join-team">
+            <div class="join-team-text">
+                <h2>Join Our Team</h2>
+                <p>At Positivus, we're always looking for talented individuals to join our team. If you're passionate about marketing and want to be part of our success story, we'd love to hear from you!</p>
+                <a href="#" class="btn">Explore Careers</a>
+            </div>
+            <div class="join-team-image">
+                <img src="/api/placeholder/200/150" alt="Join our team">
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>YourCompany</h3>
-                    <p data-i18n="footer.about">Empowering businesses with innovative solutions since 2015. Our mission is to help companies achieve operational excellence.</p>
-                </div>
-                <div class="footer-column">
-                    <h3 data-i18n="footer.contactTitle">Contact Us</h3>
-                    <p>123 Business Avenue</p>
-                    <p>San Francisco, CA 94107</p>
-                    <p>info@yourcompany.com</p>
-                    <p>+1 (555) 123-4567</p>
-                </div>
-                <div class="footer-column">
-                    <h3 data-i18n="footer.linksTitle">Quick Links</h3>
-                    <a href="#features" data-i18n="nav.features">Features</a>
-                    <a href="#testimonials" data-i18n="nav.testimonials">Testimonials</a>
-                    <a href="#" data-i18n="footer.pricing">Pricing</a>
-                    <a href="#" data-i18n="footer.resources">Resources</a>
-                </div>
-                <div class="footer-column">
-                    <h3 data-i18n="footer.connectTitle">Connect With Us</h3>
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <span class="footer-logo-square"></span>Positivus
+                    </div>
                     <div class="social-links">
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Facebook</a>
+                        <a href="#">●</a>
+                        <a href="#">●</a>
+                        <a href="#">●</a>
+                    </div>
+                    <div class="footer-contact">
+                        <p>Email: hello@positivus.com</p>
+                        <p>Phone: (555) 123-4567</p>
+                        <p>Address: 123 Main St</p>
+                        <p>Anytown City, United States 12345</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>About Us</h3>
+                        <a href="#">Our Story</a>
+                        <a href="#">Team</a>
+                        <a href="#">Careers</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <a href="#">Marketing Strategy</a>
+                        <a href="#">SEO Optimization</a>
+                        <a href="#">Content Creation</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Use Cases</h3>
+                        <a href="#">Success Stories</a>
+                        <a href="#">Case Studies</a>
+                        <a href="#">Client Reviews</a>
+                    </div>
+                </div>
+                
+                <div class="footer-subscribe">
+                    <h3>Subscribe to Newsletter</h3>
+                    <div class="subscribe-form">
+                        <input type="email" class="subscribe-input" placeholder="Email">
+                        <button class="subscribe-btn">Subscribe</button>
                     </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2025 YourCompany. <span data-i18n="footer.copyright">All Rights Reserved.</span></p>
+                <div>© 2025 Positivus. All Rights Reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Language translations
+        // Language translations (simplified for brevity)
         const translations = {
             en: {
-                nav: {
-                    features: "Features",
-                    testimonials: "Testimonials",
-                    contact: "Contact",
-                    getStarted: "Get Started"
-                },
                 hero: {
-                    title: "Streamline Your Business Operations",
-                    description: "Our innovative B2B solutions help enterprises optimize workflows, reduce costs, and drive growth. Join hundreds of businesses that trust us with their operational needs.",
-                    cta: "Schedule a Demo"
-                },
-                features: {
-                    title: "Why Choose Us",
-                    subtitle: "We provide comprehensive solutions tailored to meet the unique challenges of modern businesses.",
-                    card1: {
-                        title: "Process Automation",
-                        description: "Automate repetitive tasks and workflows to improve efficiency and reduce operational costs."
-                    },
-                    card2: {
-                        title: "Data Analytics",
-                        description: "Gain valuable insights from your business data with our advanced analytics platform."
-                    },
-                    card3: {
-                        title: "Enterprise Security",
-                        description: "Protect your sensitive information with our industry-leading security protocols."
-                    },
-                    card4: {
-                        title: "Seamless Integration",
-                        description: "Easily integrate with your existing systems and third-party applications."
-                    },
-                    card5: {
-                        title: "Mobile Accessibility",
-                        description: "Access your business operations anytime, anywhere with our mobile solutions."
-                    },
-                    card6: {
-                        title: "Customizable Solutions",
-                        description: "Tailor our platform to fit your specific business requirements and objectives."
-                    }
-                },
-                testimonials: {
-                    title: "What Our Clients Say",
-                    subtitle: "Don't just take our word for it. Hear from businesses that have transformed their operations with our solutions.",
-                    quote1: "\"Implementing YourCompany's solutions has revolutionized our workflow efficiency. We've seen a 30% increase in productivity within just three months.\"",
-                    position1: "CTO, Tech Innovations Inc.",
-                    quote2: "\"The level of customer support provided by the team is exceptional. They're always available to address our concerns and help optimize our processes.\"",
-                    position2: "Operations Manager, Global Solutions",
-                    quote3: "\"As a growing company, we needed scalable solutions that could grow with us. YourCompany provided exactly what we needed, and more.\"",
-                    position3: "CEO, StartUp Ventures"
-                },
-                cta: {
-                    title: "Ready to Transform Your Business?",
-                    description: "Join hundreds of companies that are already leveraging our platform to streamline their operations and drive growth.",
-                    button: "Get Started Today"
-                },
-                footer: {
-                    about: "Empowering businesses with innovative solutions since 2015. Our mission is to help companies achieve operational excellence.",
-                    contactTitle: "Contact Us",
-                    linksTitle: "Quick Links",
-                    pricing: "Pricing",
-                    resources: "Resources",
-                    connectTitle: "Connect With Us",
-                    copyright: "All Rights Reserved."
+                    title: "Together for Success",
+                    description: "At Positivus, we help businesses grow by optimizing creative, innovative, and effective marketing and advertising solutions. We're proud of our track record of shared success."
                 }
+                // Add other translations as needed
             },
             nl: {
-                nav: {
-                    features: "Functies",
-                    testimonials: "Getuigenissen",
-                    contact: "Contact",
-                    getStarted: "Aan de slag"
-                },
                 hero: {
-                    title: "Stroomlijn uw bedrijfsactiviteiten",
-                    description: "Onze innovatieve B2B-oplossingen helpen bedrijven workflows te optimaliseren, kosten te verlagen en groei te stimuleren. Sluit u aan bij honderden bedrijven die ons vertrouwen met hun operationele behoeften.",
-                    cta: "Plan een demo"
-                },
-                features: {
-                    title: "Waarom voor ons kiezen",
-                    subtitle: "Wij bieden uitgebreide oplossingen op maat om aan de unieke uitdagingen van moderne bedrijven te voldoen.",
-                    card1: {
-                        title: "Procesautomatisering",
-                        description: "Automatiseer repetitieve taken en workflows om de efficiëntie te verbeteren en operationele kosten te verlagen."
-                    },
-                    card2: {
-                        title: "Gegevensanalyse",
-                        description: "Verkrijg waardevolle inzichten uit uw bedrijfsgegevens met ons geavanceerde analyseplatform."
-                    },
-                    card3: {
-                        title: "Bedrijfsbeveiliging",
-                        description: "Bescherm uw gevoelige informatie met onze toonaangevende beveiligingsprotocollen."
-                    },
-                    card4: {
-                        title: "Naadloze integratie",
-                        description: "Eenvoudig te integreren met uw bestaande systemen en applicaties van derden."
-                    },
-                    card5: {
-                        title: "Mobiele toegankelijkheid",
-                        description: "Toegang tot uw bedrijfsactiviteiten, altijd en overal, met onze mobiele oplossingen."
-                    },
-                    card6: {
-                        title: "Aanpasbare oplossingen",
-                        description: "Pas ons platform aan om aan uw specifieke bedrijfsvereisten en doelstellingen te voldoen."
-                    }
-                },
-                testimonials: {
-                    title: "Wat onze klanten zeggen",
-                    subtitle: "Neem niet alleen ons woord ervoor. Hoor van bedrijven die hun activiteiten hebben getransformeerd met onze oplossingen.",
-                    quote1: "\"Het implementeren van YourCompany's oplossingen heeft onze werkstroomefficiëntie revolutionair veranderd. We hebben binnen slechts drie maanden een productiviteitsverhoging van 30% gezien.\"",
-                    position1: "CTO, Tech Innovations Inc.",
-                    quote2: "\"Het niveau van klantenondersteuning dat door het team wordt geboden, is uitzonderlijk. Ze zijn altijd beschikbaar om onze zorgen aan te pakken en onze processen te helpen optimaliseren.\"",
-                    position2: "Operationeel manager, Global Solutions",
-                    quote3: "\"Als groeiend bedrijf hadden we schaalbare oplossingen nodig die met ons mee konden groeien. YourCompany bood precies wat we nodig hadden, en meer.\"",
-                    position3: "CEO, StartUp Ventures"
-                },
-                cta: {
-                    title: "Klaar om uw bedrijf te transformeren?",
-                    description: "Sluit u aan bij honderden bedrijven die ons platform al gebruiken om hun activiteiten te stroomlijnen en groei te stimuleren.",
-                    button: "Begin vandaag nog"
-                },
-                footer: {
-                    about: "Wij versterken bedrijven met innovatieve oplossingen sinds 2015. Onze missie is om bedrijven te helpen operationele uitmuntendheid te bereiken.",
-                    contactTitle: "Neem contact op",
-                    linksTitle: "Snelle links",
-                    pricing: "Prijzen",
-                    resources: "Hulpbronnen",
-                    connectTitle: "Verbind met ons",
-                    copyright: "Alle rechten voorbehouden."
+                    title: "Samen voor Succes",
+                    description: "Bij Positivus helpen we bedrijven groeien door creatieve, innovatieve en effectieve marketing- en reclameoplossingen te optimaliseren. We zijn trots op ons track record van gedeeld succes."
                 }
+                // Add other translations as needed
             },
             fr: {
-                nav: {
-                    features: "Fonctionnalités",
-                    testimonials: "Témoignages",
-                    contact: "Contact",
-                    getStarted: "Commencer"
-                },
                 hero: {
-                    title: "Rationalisez vos opérations commerciales",
-                    description: "Nos solutions B2B innovantes aident les entreprises à optimiser les flux de travail, réduire les coûts et stimuler la croissance. Rejoignez des centaines d'entreprises qui nous font confiance pour leurs besoins opérationnels.",
-                    cta: "Planifier une démo"
-                },
-                features: {
-                    title: "Pourquoi nous choisir",
-                    subtitle: "Nous fournissons des solutions complètes adaptées pour répondre aux défis uniques des entreprises modernes.",
-                    card1: {
-                        title: "Automatisation des processus",
-                        description: "Automatisez les tâches répétitives et les flux de travail pour améliorer l'efficacité et réduire les coûts opérationnels."
-                    },
-                    card2: {
-                        title: "Analyse de données",
-                        description: "Obtenez des informations précieuses à partir de vos données d'entreprise avec notre plateforme d'analyse avancée."
-                    },
-                    card3: {
-                        title: "Sécurité d'entreprise",
-                        description: "Protégez vos informations sensibles avec nos protocoles de sécurité de pointe."
-                    },
-                    card4: {
-                        title: "Intégration transparente",
-                        description: "Intégrez facilement avec vos systèmes existants et applications tierces."
-                    },
-                    card5: {
-                        title: "Accessibilité mobile",
-                        description: "Accédez à vos opérations commerciales à tout moment et n'importe où avec nos solutions mobiles."
-                    },
-                    card6: {
-                        title: "Solutions personnalisables",
-                        description: "Adaptez notre plateforme pour répondre à vos exigences et objectifs commerciaux spécifiques."
-                    }
-                },
-                testimonials: {
-                    title: "Ce que disent nos clients",
-                    subtitle: "Ne vous fiez pas seulement à notre parole. Écoutez les entreprises qui ont transformé leurs opérations avec nos solutions.",
-                    quote1: "\"La mise en œuvre des solutions de YourCompany a révolutionné l'efficacité de notre flux de travail. Nous avons constaté une augmentation de 30% de la productivité en seulement trois mois.\"",
-                    position1: "Directeur technique, Tech Innovations Inc.",
-                    quote2: "\"Le niveau de support client fourni par l'équipe est exceptionnel. Ils sont toujours disponibles pour répondre à nos préoccupations et nous aider à optimiser nos processus.\"",
-                    position2: "Responsable des opérations, Global Solutions",
-                    quote3: "\"En tant qu'entreprise en croissance, nous avions besoin de solutions évolutives qui pouvaient grandir avec nous. YourCompany a fourni exactement ce dont nous avions besoin, et plus encore.\"",
-                    position3: "PDG, StartUp Ventures"
-                },
-                cta: {
-                    title: "Prêt à transformer votre entreprise ?",
-                    description: "Rejoignez des centaines d'entreprises qui utilisent déjà notre plateforme pour rationaliser leurs opérations et stimuler la croissance.",
-                    button: "Commencez aujourd'hui"
-                },
-                footer: {
-                    about: "Nous donnons aux entreprises les moyens d'agir avec des solutions innovantes depuis 2015. Notre mission est d'aider les entreprises à atteindre l'excellence opérationnelle.",
-                    contactTitle: "Contactez-nous",
-                    linksTitle: "Liens rapides",
-                    pricing: "Tarification",
-                    resources: "Ressources",
-                    connectTitle: "Connectez-vous avec nous",
-                    copyright: "Tous droits réservés."
+                    title: "Ensemble pour le Succès",
+                    description: "Chez Positivus, nous aidons les entreprises à se développer en optimisant des solutions marketing et publicitaires créatives, innovantes et efficaces. Nous sommes fiers de notre bilan de succès partagé."
                 }
+                // Add other translations as needed
             }
         };
 
         // Function to change language
         function changeLanguage(lang) {
-            // Update both language selectors
+            // Update language selector
             document.getElementById('language-select').value = lang;
-            document.getElementById('language-select-desktop').value = lang;
             
             // Store the selected language in localStorage
             localStorage.setItem('preferredLanguage', lang);
@@ -765,7 +1138,6 @@
                     if (value && value[key]) {
                         value = value[key];
                     } else {
-                        console.warn(`Translation not found for: ${element.getAttribute('data-i18n')} in language: ${lang}`);
                         return;
                     }
                 }
